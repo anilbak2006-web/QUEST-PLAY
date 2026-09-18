@@ -359,8 +359,13 @@ const asQuestImage = (value) => {
     if (!value) return "/LOGO.png";
     if (value.startsWith("http://") || value.startsWith("https://")) return value;
     if (value.startsWith("/")) return value;
-    if (value.startsWith("QUEST_IMAGES/")) return `/${value}`;
-    return `/QUEST_IMAGES/${value}`;
+
+    const cleanValue = value.startsWith("QUEST_IMAGES/")
+        ? value.replace(/^QUEST_IMAGES\//, "")
+        : value;
+
+    const baseName = cleanValue.replace(/\.[^/.]+$/, "");
+    return `/QUEST_IMAGES/${baseName}.webp`;
 };
 
 // ======================================================

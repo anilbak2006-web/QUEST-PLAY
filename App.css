@@ -659,25 +659,29 @@ header {
 @media (max-width: 650px) {
 
     header {
-        display: flex;
-        flex-direction: column;
-        margin-top: 112px;
+        position: relative;
+        display: block;
+        width: calc(100% - 20px);
+        margin: 18px auto 0;
+        padding-top: 12px;
+        box-sizing: border-box;
     }
 
     .header_size {
-        order: 1;
+        order: unset;
+        padding-top: 0;
     }
 
     header>nav:last-of-type {
-        order: 2;
+        order: unset;
     }
 
     header>nav:first-of-type {
-        order: 3;
+        order: unset;
     }
 
     header>section {
-        order: 4;
+        order: unset;
     }
 
 
@@ -756,13 +760,14 @@ header {
     }
 
     .QuestPlayLogo {
-        position: fixed;
-        top: 12px;
+        position: static;
+        top: auto;
         right: auto;
         bottom: auto;
-        left: 50%;
+        left: auto;
         width: min(190px, 52vw);
-        transform: translateX(-50%);
+        margin: 0 auto 12px;
+        transform: none;
         text-align: center;
     }
 
@@ -793,7 +798,7 @@ header {
        ------------------------------ */
 
     .QuestContainer {
-        width: min(520px, calc(100vw - 64px));
+        width: min(520px, calc(100vw - 24px));
         margin: 20px auto;
         padding: 12px 8px;
     }
@@ -876,21 +881,21 @@ header {
 @media (max-width: 650px) {
 
     .QuestPlayLogo {
-        position: absolute !important;
-        top: 8px !important;
-        right: auto !important;
-        bottom: auto !important;
-        left: 50% !important;
-        z-index: 1100;
+        position: static;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        z-index: 1;
 
         width: min(190px, 52vw);
 
-        margin: 0;
+        margin: 0 auto 12px;
 
-        transform: translateX(-50%);
+        transform: none;
     }
 
     .header_size {
-        padding-top: 92px;
+        padding-top: 0;
     }
 }
