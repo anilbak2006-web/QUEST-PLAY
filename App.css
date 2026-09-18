@@ -1,0 +1,848 @@
+html {
+    min-height: 100%;
+    background: linear-gradient(to right, red, purple);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to right, red, purple);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    color: #17122b;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+
+/* ======================================================
+   HEADER
+   ====================================================== */
+
+header {
+    right: 17px;
+    margin-top: 62px;
+    height: 174px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #32115f, #63136f 55%, #29135c);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    box-shadow: 0 10px 28px rgba(37, 0, 50, 0.34);
+    user-select: none;
+}
+
+.HeaderTitle {
+    margin-top: 18px;
+    font-size: xx-large;
+    font-family: 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif;
+    color: #fff7ff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.PageInfo {
+    margin-top: 32px;
+    font-weight: bolder;
+    font-size: 22px;
+    color: #fff8ff;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+
+/* ======================================================
+   LOGO
+   ====================================================== */
+
+.QuestPlayLogo {
+    position: fixed;
+    bottom: 18px;
+    left: 20px;
+    z-index: 10;
+    width: 260px;
+}
+
+.QuestPlayLogo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    mix-blend-mode: screen;
+    filter: brightness(1.35) contrast(1.08) saturate(1.1);
+    background: transparent;
+}
+
+
+/* ======================================================
+   RENK DEĞİŞTİRME
+   ====================================================== */
+
+.ChangeColorContainer {
+    display: flex;
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    margin-top: 0;
+    z-index: 1000;
+}
+
+.ChangePageColorStyle {
+    display: block;
+    position: relative;
+    height: 70px;
+    width: 164px;
+    padding: 6px;
+    background-color: #3210c8;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(31, 0, 67, 0.35);
+}
+
+.ChangeColorItems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    height: 100%;
+}
+
+.changePageColor,
+.mainPageColor {
+    width: 62px;
+    height: 62px;
+    padding: 0;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+}
+
+.changePageColor img,
+.mainPageColor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.changePageColor:hover img,
+.mainPageColor:hover img {
+    transform: scale(1.08);
+}
+
+.black_info,
+.main_color_info {
+    display: none;
+    position: absolute;
+    top: 108px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.black_info {
+    background-color: black;
+    color: white;
+}
+
+.main_color_info {
+    background-color: white;
+    color: black;
+}
+
+.changePageColor:hover .black_info,
+.mainPageColor:hover .main_color_info {
+    display: block;
+}
+
+.changecolor_info {
+    position: fixed;
+    right: 18px;
+    bottom: 108px;
+    width: 164px;
+    text-align: center;
+    z-index: 999;
+}
+
+.changecolor_info h3 {
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 7px 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 5px 16px rgba(31, 0, 67, 0.2);
+    font-size: 14px;
+    line-height: 1.3;
+    color: #20105c;
+}
+
+
+/* ======================================================
+   TEST SAYACI
+   ====================================================== */
+
+.UserCountContainer {
+    position: relative;
+    top: 90px;
+    left: 1%;
+    box-sizing: border-box;
+    background-color: #3510d7;
+    padding: 15px;
+    border: 2px solid rgba(126, 231, 255, 0.7);
+    border-radius: 18px;
+}
+
+.UserCountInfo {
+    margin: 0;
+}
+
+.UserCountInfo h2 {
+    margin: 0;
+    color: #fffaff;
+    font-size: clamp(24px, 5vw, 36px);
+    line-height: 1.1;
+    text-align: center;
+}
+
+
+/* ======================================================
+   QUIZ CONTAINER
+   ====================================================== */
+
+.QuestContainer {
+    width: calc(100% - 48px);
+    max-width: 1360px;
+    margin: 44px auto;
+    padding: 36px;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(240, 242, 247, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+    box-shadow:
+        0 16px 34px rgba(54, 0, 55, 0.24),
+        inset 0 1px 0 white;
+    margin-top: 158px;
+    box-sizing: border-box;
+}
+
+
+/* ======================================================
+   QUIZLER
+   ====================================================== */
+
+.QuestStyles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.QuestStyles img {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: 3px solid white;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(52, 38, 65, 0.42);
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.QuestStyles img:hover {
+    transform: scale(1.05);
+}
+
+.QuestPlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    padding: 24px;
+    border: 3px solid white;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #351078, #c51c82);
+    box-shadow: 0 6px 14px rgba(52, 38, 65, 0.42);
+    color: white;
+    font: 700 20px/1.2 'Trebuchet MS', sans-serif;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.QuestPlaceholder:hover {
+    transform: scale(1.05);
+}
+
+
+/* ======================================================
+   FİLTRE BUTONLARI
+   ====================================================== */
+
+.BtnFilter {
+    position: absolute;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffe600;
+    top: 367px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    border-radius: 14px;
+    width: min(920px, calc(100% - 48px));
+}
+
+.BtnFilter button {
+    position: relative;
+    background-color: #ff00d4;
+    width: 240px;
+    border-radius: 82px;
+    height: 32px;
+    gap: 50vh;
+    cursor: pointer;
+}
+
+.BtnFilter button:hover {
+    background-color: greenyellow;
+}
+
+.BtnFilter button.activeBtn {
+    background-color: green;
+    height: 39px;
+}
+
+
+/* ======================================================
+   TABLET / GENEL RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 1100px) {
+
+    header {
+        width: calc(100% - 32px);
+        height: auto;
+        min-height: 150px;
+        margin: 30px 16px 0;
+        box-sizing: border-box;
+        padding: 20px 12px;
+    }
+
+    .HeaderTitle {
+        font-size: clamp(22px, 4vw, 32px);
+        text-align: center;
+        margin: 0;
+    }
+
+    .PageInfo {
+        font-size: clamp(16px, 3vw, 22px);
+        text-align: center;
+        margin: 24px 0 0;
+    }
+
+    .QuestPlayLogo {
+        position: fixed;
+        top: auto;
+        bottom: 16px;
+        left: 16px;
+        width: min(220px, 42vw);
+        text-align: left;
+        z-index: 10;
+    }
+
+    .QuestPlayLogo img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .ChangeColorContainer {
+        position: fixed;
+        top: auto;
+        right: 16px;
+        bottom: 16px;
+        margin: 0;
+    }
+
+    .changecolor_info {
+        position: fixed;
+        top: auto;
+        right: 16px;
+        bottom: 88px;
+        width: 164px;
+    }
+
+    .UserCountContainer {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: calc(100% - 32px);
+        margin: 24px 16px 0;
+    }
+
+    .QuestContainer {
+        width: min(920px, calc(100vw - 64px));
+        margin: 28px auto;
+        padding: 24px 16px;
+    }
+
+    .QuestStyles img {
+        width: min(45%, 360px);
+        min-width: 220px;
+    }
+}
+
+
+/* ======================================================
+   TABLET
+   651px - 1100px
+   ====================================================== */
+
+@media (min-width: 651px) and (max-width: 1100px) {
+
+    /* ==================================================
+       TABLET ÜST ALAN
+       LOGO
+       ================================================== */
+
+    .QuestPlayLogo {
+        position: absolute;
+        top: 18px;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translateX(-50%);
+        width: min(230px, 32vw);
+        margin: 0;
+        text-align: center;
+        z-index: 900;
+    }
+
+    .QuestPlayLogo img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+
+    /* ==================================================
+       TABLET RENK PALETİ
+       LOGONUN ALTINDA, KOYU ARKA PLAN İLE NET KONTRAST
+       ================================================== */
+
+    .ChangeColorContainer {
+        position: absolute;
+        top: 130px;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translateX(-50%);
+        z-index: 1000;
+        margin: 0;
+    }
+
+    .ChangePageColorStyle {
+        width: 180px;
+        height: 76px;
+        padding: 8px;
+        background-color: #1a0a63;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        border-radius: 14px;
+        box-shadow: 0 8px 22px rgba(31, 0, 67, 0.35);
+    }
+
+    .ChangeColorItems {
+        gap: 12px;
+    }
+
+    .changePageColor,
+    .mainPageColor {
+        width: 62px;
+        height: 62px;
+    }
+
+    /* Tooltip: tam opak, yüksek kontrast, üstte kalır */
+    .changecolor_info {
+        position: absolute;
+        top: 214px;
+        left: 50%;
+        right: auto;
+        bottom: auto;
+        transform: translateX(-50%);
+        width: 220px;
+        z-index: 1500;
+    }
+
+    .changecolor_info h3 {
+        margin: 0;
+        padding: 8px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        color: #1a0a63;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1.35;
+    }
+
+
+    /* ==================================================
+       TABLET HEADER
+       Logo + palet + tooltip toplam yüksekliğine göre
+       yeterli boşluk bırakıldı
+       ================================================== */
+
+    header {
+        width: calc(100% - 32px);
+        margin: 300px 16px 0;
+        min-height: 150px;
+        height: auto;
+        padding: 20px 12px;
+        box-sizing: border-box;
+    }
+
+
+    /* ==================================================
+       FİLTRELER
+       ================================================== */
+
+    .BtnFilter {
+        position: relative;
+
+        z-index: 20;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: min(920px, calc(100vw - 64px));
+        height: 36px;
+
+        margin: 28px auto -18px;
+
+        background-color: transparent;
+
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
+    .BtnFilter button {
+        position: relative;
+
+        width: 30%;
+        min-width: 0;
+        height: 32px;
+
+        padding: 0 8px;
+
+        background-color: #ff00d4;
+
+        border: 2px solid white;
+        border-radius: 82px;
+
+        cursor: pointer;
+    }
+
+    .BtnFilter button:hover {
+        background-color: greenyellow;
+    }
+
+    .BtnFilter button.activeBtn {
+        background-color: green;
+        height: 39px;
+    }
+
+
+    /* ==================================================
+       BEYAZ QUIZ ALANI
+       ================================================== */
+
+    .QuestContainer {
+        position: relative;
+
+        width: min(920px, calc(100vw - 64px));
+
+        margin: 0 auto 28px;
+
+        padding: 24px 16px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* ==================================================
+       TABLET 3'LÜ QUIZ DÜZENİ
+       ================================================== */
+
+    .QuestStyles {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .QuestStyles img {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+}
+
+
+/* ======================================================
+   MOBİL
+   ====================================================== */
+
+@media (max-width: 650px) {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        margin-top: 112px;
+    }
+
+    .header_size {
+        order: 1;
+    }
+
+    header>nav:last-of-type {
+        order: 2;
+    }
+
+    header>nav:first-of-type {
+        order: 3;
+    }
+
+    header>section {
+        order: 4;
+    }
+
+
+    /* ------------------------------
+       RENK DEĞİŞTİRME
+       ------------------------------ */
+
+    .ChangeColorContainer {
+        position: fixed;
+        top: auto;
+        left: auto;
+        right: 12px;
+        bottom: 12px;
+        transform: none;
+        z-index: 1000;
+    }
+
+    .ChangePageColorStyle {
+        width: 164px;
+        height: 70px;
+        padding: 6px;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .ChangeColorItems {
+        gap: 14px;
+    }
+
+    .changePageColor,
+    .mainPageColor {
+        width: 62px;
+        height: 62px;
+        border-width: 2px;
+        border-radius: 9px;
+    }
+
+    .black_info,
+    .main_color_info {
+        top: 60px;
+        font-size: 10px;
+    }
+
+    .changecolor_info {
+        position: fixed;
+        top: auto;
+        left: auto;
+        right: 12px;
+        bottom: 96px;
+        transform: none;
+        width: 164px;
+        z-index: 999;
+    }
+
+    .changecolor_info h3 {
+        margin: 0;
+        padding: 6px 10px;
+        border: 0;
+        border-radius: 8px;
+        background:
+            linear-gradient(rgba(255, 255, 255, 0.78),
+                rgba(255, 255, 255, 0.78)) padding-box;
+        color: #10105f;
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
+
+    /* ------------------------------
+       LOGO
+       ------------------------------ */
+
+    .QuestPlayLogo img {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .QuestPlayLogo {
+        position: fixed;
+        top: 12px;
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        width: min(190px, 52vw);
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+
+    /* ------------------------------
+       QUIZLER
+       ------------------------------ */
+
+    .QuestStyles {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .QuestStyles img {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-width: 2px;
+        border-radius: 9px;
+    }
+
+
+    /* ------------------------------
+       QUIZ CONTAINER
+       ------------------------------ */
+
+    .QuestContainer {
+        width: min(520px, calc(100vw - 64px));
+        margin: 20px auto;
+        padding: 12px 8px;
+    }
+
+
+    /* ------------------------------
+       MOBİL FİLTRE
+       ------------------------------ */
+
+    .BtnFilter {
+        position: relative;
+        top: auto;
+        left: auto;
+
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 6px;
+
+        width: min(520px, calc(100vw - 64px));
+
+        margin: 18px auto 0;
+
+        padding: 0;
+
+        background-color: transparent;
+
+        transform: none;
+    }
+
+    .BtnFilter button {
+        flex: 1 1 0;
+
+        width: auto;
+        min-width: 0;
+
+        min-height: 42px;
+        height: auto;
+
+        padding: 4px;
+
+        font-size: 10px;
+        line-height: 1.1;
+    }
+
+    .BtnFilter button.activeBtn {
+        height: auto;
+        min-height: 42px;
+    }
+}
+
+
+/* ======================================================
+   KÜÇÜK TELEFON
+   ====================================================== */
+
+@media (max-width: 380px) {
+
+    header {
+        margin-top: 140px;
+    }
+
+    .ChangePageColorStyle,
+    .changecolor_info {
+        width: 164px;
+    }
+
+    .changePageColor,
+    .mainPageColor {
+        width: 52px;
+        height: 52px;
+    }
+}
+
+
+/* ======================================================
+   MOBİL LOGO SON AYAR
+   ====================================================== */
+
+@media (max-width: 650px) {
+
+    .QuestPlayLogo {
+        position: absolute !important;
+        top: 8px !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: 50% !important;
+        z-index: 1100;
+
+        width: min(190px, 52vw);
+
+        margin: 0;
+
+        transform: translateX(-50%);
+    }
+
+    .header_size {
+        padding-top: 92px;
+    }
+}
