@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import questPlayLogo from './LOGO.png'
 import './App.css'
@@ -48,65 +48,6 @@ function Seo({ title, description, image }) {
     return null
 }
 
-
-function LazyQuizCardImage({ quiz, navigate }) {
-    const cardRef = useRef(null)
-    const [shouldLoadImage, setShouldLoadImage] = useState(false)
-
-    useEffect(() => {
-        const node = cardRef.current
-
-        if (!node) return
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const [entry] = entries
-
-                if (entry?.isIntersecting) {
-                    setShouldLoadImage(true)
-                    observer.disconnect()
-                }
-            },
-            {
-                rootMargin: '220px 0px',
-                threshold: 0.01,
-            }
-        )
-
-        observer.observe(node)
-
-        return () => observer.disconnect()
-    }, [])
-
-    return (
-        <div
-            ref={cardRef}
-            className='QuizCardImageWrap'
-            onClick={() => navigate(`/quiz/${quiz.id}`)}
-            role='button'
-            tabIndex={0}
-            onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault()
-                    navigate(`/quiz/${quiz.id}`)
-                }
-            }}
-        >
-            {!shouldLoadImage ? (
-                <div className='QuizCardImagePlaceholder' aria-hidden='true'>
-                    <span>{quiz.title}</span>
-                </div>
-            ) : (
-                <img
-                    src={normalizeAssetPath(quiz.image)}
-                    alt={quiz.title}
-                    loading='lazy'
-                    decoding='async'
-                />
-            )}
-        </div>
-    )
-}
 
 function App() {
 
@@ -241,10 +182,13 @@ function App() {
                                 {/* Each image acts as a link to its corresponding quiz. */}
                                 {FilterQuizses.map((quiz) => (
                                     quiz.image ? (
-                                        <LazyQuizCardImage
+                                        <img
                                             key={quiz.id}
-                                            quiz={quiz}
-                                            navigate={navigate}
+                                            src={normalizeAssetPath(quiz.image)}
+                                            alt={quiz.title}
+                                            loading='lazy'
+                                            decoding='async'
+                                            onClick={() => navigate(`/quiz/${quiz.id}`)}
                                         />
                                     ) : (
                                         <button
@@ -341,4 +285,4 @@ function App() {
     )
 }
 
-export default App
+export default App;

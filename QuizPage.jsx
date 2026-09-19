@@ -11,11 +11,7 @@ function QuizPage({ quiz, onBack, setQuizTotalCount }) {
   const [QuizFinished, setQuizFinished] = useState(false);
   const [message, setMessage] = useState("");
   const [showReview, setShowReview] = useState(false);
-
-
-
-
-  // Read the current theme so the quiz page matches the home page.
+  const [imageError, setImageError] = useState(false);
   const [pageColor] = useState(
     localStorage.getItem("PageColor") || "Main"
   );
@@ -215,6 +211,7 @@ function QuizPage({ quiz, onBack, setQuizTotalCount }) {
 
     const characterInfo = characterDetails[characterName];
 
+    const handleCharacterImageError = () => setImageError(true);
 
     return (
       <div
@@ -234,12 +231,19 @@ function QuizPage({ quiz, onBack, setQuizTotalCount }) {
         {characterInfo && (
           <div className="CharacterResult">
 
-            {characterInfo.image && (
+            {characterInfo.image && !imageError && (
               <img
                 src={characterInfo.image}
                 alt={characterName}
                 className="CharacterResultImage"
+                onError={handleCharacterImageError}
               />
+            )}
+
+            {imageError && (
+              <div className="CharacterFallback">
+                {characterName || "Sonuç"}
+              </div>
             )}
 
             <p>

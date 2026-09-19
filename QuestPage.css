@@ -4,17 +4,21 @@
 .QuizContainer {
     display: block;
     width: min(1100px, 92%);
-    min-height: 85vh; /* 100vh bazen mobilde taşma yapar, 85vh daha dengelidir */
+    min-height: 85vh;
+    /* 100vh bazen mobilde taşma yapar, 85vh daha dengelidir */
     margin: 40px auto;
-    padding: clamp(15px, 4vw, 30px); /* Ekran küçüldükçe padding azalır */
+    padding: clamp(15px, 4vw, 30px);
+    /* Ekran küçüldükçe padding azalır */
     box-sizing: border-box;
 
     border-radius: 22px;
     border: clamp(3px, 1vw, 6px) solid black;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* Gölgeler daha modernleştirildi */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+    /* Gölgeler daha modernleştirildi */
 
     color: white;
-    transition: background 0.3s ease; /* Arka plan değişimleri yumuşatıldı */
+    transition: background 0.3s ease;
+    /* Arka plan değişimleri yumuşatıldı */
 }
 
 .AllQuestIndex {
@@ -32,10 +36,12 @@
 .QuizTitle {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bolder;
-    font-size: clamp(24px, 5vw, 36px); /* Ekran boyutuna göre otomatik büyür/küçülür */
+    font-size: clamp(24px, 5vw, 36px);
+    /* Ekran boyutuna göre otomatik büyür/küçülür */
     text-align: center;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Başlığa derinlik katar */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Başlığa derinlik katar */
 }
 
 .QuestionStyle {
@@ -55,37 +61,39 @@
 .OptionStyles {
     display: block;
     width: min(600px, 100%);
-    min-height: 48px; /* Mobilde dokunma alanını artırmak için biraz yükseltildi */
+    min-height: 48px;
+    /* Mobilde dokunma alanını artırmak için biraz yükseltildi */
     margin: 12px auto;
     padding: 12px 16px;
     box-sizing: border-box;
-    
+
     color: black;
     background-color: white;
     border: 2px solid black;
     border-radius: 10px;
-    
+
     cursor: pointer;
     text-align: left;
     font-size: clamp(14px, 3vw, 16px);
     font-weight: 500;
-    
-    transition: all 0.2s ease; /* Animasyonlar akıcılaştırıldı */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    transition: all 0.2s ease;
+    /* Animasyonlar akıcılaştırıldı */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .OptionStyle:hover,
 .OptionStyles:hover {
     background-color: #e3f2fd;
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Tıklanma Hissiyatı (Aktif Durum) */
 .OptionStyle:active,
 .OptionStyles:active {
-    transform: translateY(2px) scale(0.98); 
-    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .OptionStyles.selectedOption {
@@ -93,7 +101,8 @@
     border-color: white;
     box-shadow: 0 0 10px rgba(18, 97, 160, 0.6);
     color: white;
-    transform: scale(1.02); /* Seçilen şık hafif öne çıkar */
+    transform: scale(1.02);
+    /* Seçilen şık hafif öne çıkar */
 }
 
 /* =========================================
@@ -114,33 +123,33 @@
 }
 
 .FinishQuizBtn button,
-.QuizContainer > button {
+.QuizContainer>button {
     display: block;
     margin: 20px auto;
     padding: 14px 28px;
-    
+
     color: white;
     background-color: #1261a0;
     border: 2px solid white;
     border-radius: 10px;
-    
+
     cursor: pointer;
     font-weight: bold;
     font-size: clamp(14px, 3vw, 16px);
-    
+
     transition: all 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .FinishQuizBtn button:hover,
-.QuizContainer > button:hover {
+.QuizContainer>button:hover {
     background-color: #1887d7;
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .FinishQuizBtn button:active,
-.QuizContainer > button:active {
+.QuizContainer>button:active {
     transform: translateY(1px) scale(0.98);
 }
 
@@ -206,12 +215,29 @@
 .CharacterResultImage {
     display: block;
     width: min(400px, 100%);
-    max-height: 50vh; /* Ekrana göre orantılı yükseklik */
+    max-height: 50vh;
+    /* Ekrana göre orantılı yükseklik */
     object-fit: contain;
     margin: 0 auto 20px;
     border-radius: 16px;
     border: 3px solid white;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.CharacterFallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(400px, 100%);
+    min-height: 220px;
+    margin: 0 auto 20px;
+    border-radius: 16px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+    color: white;
+    font-weight: 700;
+    font-size: clamp(24px, 5vw, 34px);
+    letter-spacing: 0.04em;
 }
 
 .CharacterResult p {
